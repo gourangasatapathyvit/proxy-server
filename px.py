@@ -6,6 +6,14 @@ async def main():
     # target_url = "http://snowfl.com/"
     target_url = "https://www.youtube.com/"
     
+    try:
+        with open("suc1.txt", "w") as f:
+            f.truncate()
+        with open("err.txt", "w") as f:
+            f.truncate()
+    except FileNotFoundError as e:
+        print(e)
+
     with open('prox.txt', 'r') as file:
         proxy_addresses = file.readlines()
     
