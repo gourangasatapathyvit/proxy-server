@@ -4,7 +4,7 @@ import aiohttp
 async def main():
     # target_url = "https://checkip.amazonaws.com"
     # target_url = "http://snowfl.com/"
-    target_url = "https://www.youtube.com/"
+    target_url = "http://35.237.56.59/scrape/test"
     
     try:
         with open("suc1.txt", "w") as f:
@@ -20,7 +20,7 @@ async def main():
     ssl_context = aiohttp.TCPConnector(ssl=False)
     headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'}
     async with aiohttp.ClientSession(connector=ssl_context,headers=headers) as session:
-        tasks = [fetch_and_write(session,target_url,f"http://{proxyAdrs}") for proxyAdrs in proxy_addresses]
+        tasks = [fetch_and_write(session,target_url,f"https://{proxyAdrs}") for proxyAdrs in proxy_addresses]
         await asyncio.gather(*tasks)
 
 async def fetch_and_write(session, target_url, proxyAdrs):
