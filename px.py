@@ -28,7 +28,7 @@ async def fetch_and_write(session, target_url, proxyAdrs):
         async with session.get(target_url, proxy=proxyAdrs) as response:
             if(response.status==200):
                 with open("suc1.txt", "a") as f:
-                    f.write(f"{response.status} - {proxyAdrs}\n")
+                    f.write(f"{proxyAdrs}\n")
     except Exception as e:
         with open("err.txt", "a") as fe:
             fe.write(f"{proxyAdrs} = {str(e)} "+'\n')
